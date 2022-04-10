@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
-    base: '/',
+    base: '/website/',
 
     // site-level locales config
     locales: {
