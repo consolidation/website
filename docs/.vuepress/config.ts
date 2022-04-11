@@ -40,33 +40,34 @@ export default defineUserConfig<DefaultThemeOptions>({
             prismjs: !isProd,
         },
         navbar: [
-            // nested group - max depth is 2
             {
-                text: 'Group',
+                text: 'Robo Documentation',
                 children: [
-                    {
-                        text: 'SubGroup',
-                        children: ['/group/sub/foo.md', '/group/sub/bar.md'],
-                    },
+                    '/docs/getting-started.md',
+                    '/docs/collections.md',
+                    '/docs/extending.md',
+                    '/docs/framework.md',
                 ],
             },
-            // control when should the item be active
             {
-                text: 'Group 2',
+                text: 'Tasks',
                 children: [
-                    {
-                        text: 'Always active',
-                        link: '/',
-                        // this item will always be active
-                        activeMatch: '/',
-                    },
-                    {
-                        text: 'Active on /foo/',
-                        link: '/not-foo/',
-                        // this item will be active when current route path starts with /foo/
-                        // regular expression is supported
-                        activeMatch: '^/foo/',
-                    },
+                    '/docs/tasks/ApiGen.md',
+                    '/docs/tasks/Archive.md',
+                    '/docs/tasks/Assets.md',
+                    '/docs/tasks/Base.md',
+                    '/docs/tasks/Bower.md',
+                    '/docs/tasks/Composer.md',
+                    '/docs/tasks/Development.md',
+                    '/docs/tasks/Docker.md',
+                    '/docs/tasks/File.md',
+                    '/docs/tasks/Filesystem.md',
+                    '/docs/tasks/Gulp.md',
+                    '/docs/tasks/Logfile.md',
+                    '/docs/tasks/Npm.md',
+                    '/docs/tasks/Remote.md',
+                    '/docs/tasks/Testing.md',
+                    '/docs/tasks/Vcs.md',
                 ],
             },
         ],
@@ -74,18 +75,17 @@ export default defineUserConfig<DefaultThemeOptions>({
             '/docs/': [
                 {
                     text: 'Robo Documentation',
-                    collapsible: true,
+                    collapsible: false,
                     children: [
                         '/docs/getting-started.md',
                         '/docs/collections.md',
                         '/docs/extending.md',
                         '/docs/framework.md',
-                        '/docs/getting-started.md',
                     ],
                 },
                 {
                     text: 'Tasks',
-                    collapsible: true,
+                    collapsible: false,
                     children: [
                         '/docs/tasks/ApiGen.md',
                         '/docs/tasks/Archive.md',
