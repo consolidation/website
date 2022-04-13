@@ -1,9 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
 
-
-const isProd = process.env.NODE_ENV === 'production'
-
 export default defineUserConfig<DefaultThemeOptions>({
     // site config
     base: '/website/',
@@ -33,12 +30,6 @@ export default defineUserConfig<DefaultThemeOptions>({
 
         logo: 'https://vuejs.org/images/logo.png',
 
-        themePlugins: {
-            // only enable git plugin in production mode
-            git: isProd,
-            // use shiki plugin in production mode instead
-            prismjs: !isProd,
-        },
         navbar: [
             {
                 text: 'Robo Documentation',
