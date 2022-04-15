@@ -10,7 +10,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         '/': {
             lang: 'en-US',
             title: 'Robo',
-            description: 'Vue-powered Static Site Generator',
+            description: 'Modern and simple PHP task runner',
 
         },
 
