@@ -28,7 +28,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 
         docsDir: 'docs',
 
-        logo: 'https://vuejs.org/images/logo.png',
+        logo: '/images/logotype.png',
 
         navbar: [
             {
