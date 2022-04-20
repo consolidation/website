@@ -26,7 +26,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 
         repo: 'consolidation/robo',
 
-        docsDir: 'docs',
+        docsDir: '',
 
         logo: '/images/logotype.png',
 
