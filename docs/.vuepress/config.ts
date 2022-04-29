@@ -1,7 +1,7 @@
-import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
+const { defaultTheme } = require('vuepress')
 
-export default defineUserConfig<DefaultThemeOptions>({
+module.exports = {
+
     // site config
     base: '/website/',
 
@@ -16,14 +16,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 
     },
 
-    bundler:
-    // specify bundler via environment variable
-        process.env.DOCS_BUNDLER ??
-        // use vite by default
-        '@vuepress/vite',
-
-    themeConfig: {
-
+    theme: defaultTheme({
+        // default theme config
         repo: 'consolidation/robo',
 
         docsBranch: '3.x',
@@ -100,6 +94,5 @@ export default defineUserConfig<DefaultThemeOptions>({
                 },
             ],
         },
-
-    },
-})
+    }),
+}
