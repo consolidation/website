@@ -3,14 +3,14 @@ const { defaultTheme } = require('vuepress')
 module.exports = {
 
     head: [
-        ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' }],
-        ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' }],
-        ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' }],
-        ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicons/favicon.ico' }],
-        ['link', { rel: 'manifest', href: '/favicons/site.webmanifest' }],
-        ['link', { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#ffffff' }],
+        ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/website/favicons/apple-touch-icon.png' }],
+        ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/website/favicons/favicon-32x32.png' }],
+        ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/website/favicons/favicon-16x16.png' }],
+        ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: '/website/favicons/favicon.ico' }],
+        ['link', { rel: 'manifest', href: '/website/favicons/site.webmanifest' }],
+        ['link', { rel: 'mask-icon', href: '/website/favicons/safari-pinned-tab.svg', color: '#ffffff' }],
         ['meta', { name: 'theme-color', content: '#ffffff' }],
-        ['meta', { name: 'msapplication-config', content: '/favicons/browserconfig.xml' }],
+        ['meta', { name: 'msapplication-config', content: '/website/favicons/browserconfig.xml' }],
     ],
 
     // site config
