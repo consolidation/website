@@ -37,6 +37,8 @@ module.exports = {
 
         logo: '/images/logotype.png',
 
+        contributors: false,
+
         navbar: [
             {
                 text: 'Robo Documentation',
