@@ -8,7 +8,7 @@ module.exports = {
         ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/website/favicons/favicon-16x16.png' }],
         ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: '/website/favicons/favicon.ico' }],
         ['link', { rel: 'manifest', href: '/website/favicons/site.webmanifest' }],
-        ['link', { rel: 'mask-icon', href: '/website/favicons/safari-pinned-tab.svg', color: '#ffffff' }],
+        // ['link', { rel: 'mask-icon', href: '/website/favicons/safari-pinned-tab.svg', color: '#ffffff' }],
         ['meta', { name: 'theme-color', content: '#ffffff' }],
         ['meta', { name: 'msapplication-config', content: '/website/favicons/browserconfig.xml' }],
     ],
