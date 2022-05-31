@@ -70,6 +70,10 @@ module.exports = {
                     '/docs/tasks/Vcs.md',
                 ],
             },
+            {
+                text: 'Changelog',
+                link: 'https://github.com/consolidation/robo/blob/4.x/CHANGELOG.md',
+            },
         ],
         sidebar: {
             '/docs/': [
