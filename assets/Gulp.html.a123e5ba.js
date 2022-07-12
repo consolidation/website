@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-8776872a","path":"/docs/tasks/Gulp.html","title":"Gulp Tasks","lang":"en-US","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"Run","slug":"run","children":[]}],"git":{"updatedTime":1657660879000},"filePathRelative":"docs/tasks/Gulp.md"}');export{e as data};

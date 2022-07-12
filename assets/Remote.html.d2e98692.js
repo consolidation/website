@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-79a04e97","path":"/docs/tasks/Remote.html","title":"Remote Tasks","lang":"en-US","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"Rsync","slug":"rsync","children":[]},{"level":2,"title":"Ssh","slug":"ssh","children":[]}],"git":{"updatedTime":1657660879000},"filePathRelative":"docs/tasks/Remote.md"}');export{e as data};

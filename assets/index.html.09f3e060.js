@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-147825fb","path":"/docs/","title":"Robo Documentation","lang":"en-US","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"Tasks","slug":"tasks","children":[]}],"git":{"updatedTime":1657660879000},"filePathRelative":"docs/index.md"}');export{e as data};

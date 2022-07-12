@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7f35b207","path":"/docs/tasks/ApiGen.html","title":"ApiGen Tasks","lang":"en-US","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"ApiGen","slug":"apigen","children":[]}],"git":{"updatedTime":1657660879000},"filePathRelative":"docs/tasks/ApiGen.md"}');export{e as data};

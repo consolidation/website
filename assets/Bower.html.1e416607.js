@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2ee4407e","path":"/docs/tasks/Bower.html","title":"Bower Tasks","lang":"en-US","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"Install","slug":"install","children":[]},{"level":2,"title":"Update","slug":"update","children":[]}],"git":{"updatedTime":1657660879000},"filePathRelative":"docs/tasks/Bower.md"}');export{e as data};
