@@ -1,4 +1,4 @@
-const { defaultTheme } = require('vuepress')
+import { defaultTheme } from '@vuepress/theme-default'
 
 module.exports = {
 
