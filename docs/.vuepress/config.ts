@@ -1,4 +1,5 @@
 import { defaultTheme } from '@vuepress/theme-default'
+import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 
 module.exports = {
 
@@ -112,4 +113,8 @@ module.exports = {
             ],
         },
     }),
+
+    plugins: [
+        nprogressPlugin(),
+    ],
 }
