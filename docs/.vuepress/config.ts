@@ -113,8 +113,4 @@ module.exports = {
             ],
         },
     }),
-
-    plugins: [
-        nprogressPlugin(),
-    ],
 }
