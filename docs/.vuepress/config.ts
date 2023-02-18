@@ -31,7 +31,7 @@ module.exports = {
         // default theme config
         repo: 'consolidation/robo',
 
-        docsBranch: '3.x',
+        docsBranch: '4.x',
 
         docsDir: '',
 
