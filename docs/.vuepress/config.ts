@@ -14,7 +14,7 @@ module.exports = {
     ],
 
     // site config
-    base: '/website/',
+    base: '/',
 
     // site-level locales config
     locales: {
