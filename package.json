@@ -6,6 +6,6 @@
   },
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.75",
-    "vuepress": "^2.0.0-beta.61"
+    "vuepress": "^2.0.0-beta.62"
   }
 }
