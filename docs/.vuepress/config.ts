@@ -1,4 +1,5 @@
 import { defaultTheme } from '@vuepress/theme-default'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 module.exports = {
 
@@ -112,4 +113,13 @@ module.exports = {
             ],
         },
     }),
+    plugins: [
+        searchPlugin({
+            locales: {
+                '/': {
+                    placeholder: 'Search',
+                },
+            },
+        }),
+    ],
 }
