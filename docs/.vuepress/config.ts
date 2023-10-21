@@ -9,7 +9,7 @@ module.exports = {
         ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' }],
         ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' }],
         ['link', { rel: 'manifest', href: '/favicons/site.webmanifest' }],
-        // ['link', { rel: 'mask-icon', href: '/website/favicons/safari-pinned-tab.svg', color: '#ffffff' }],
+        ['link', { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#ffffff' }],
         ['meta', { name: 'theme-color', content: '#ffffff' }],
         ['meta', { name: 'msapplication-config', content: '/favicons/browserconfig.xml' }],
     ],
