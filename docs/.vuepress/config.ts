@@ -36,7 +36,7 @@ module.exports = {
 
         docsDir: '',
 
-        logo: '/images/logotype.png',
+        logo: '/images/robo-logo.svg',
 
         contributors: false,
 
