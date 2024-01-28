@@ -1,8 +1,9 @@
+import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { searchPlugin } from '@vuepress/plugin-search'
+import { defineUserConfig } from 'vuepress'
 
-module.exports = {
-
+export default defineUserConfig({
     head: [
         ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' }],
         ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' }],
@@ -27,6 +28,8 @@ module.exports = {
         },
 
     },
+
+    bundler: viteBundler(),
 
     theme: defaultTheme({
         // default theme config
@@ -113,6 +116,7 @@ module.exports = {
             ],
         },
     }),
+
     plugins: [
         searchPlugin({
             locales: {
@@ -122,4 +126,4 @@ module.exports = {
             },
         }),
     ],
-}
+})
