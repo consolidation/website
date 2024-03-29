@@ -5,6 +5,7 @@ npm-debug.log
 coverage/
 run
 dist
+cache
 .cache
 .temp
 .DS_Store
