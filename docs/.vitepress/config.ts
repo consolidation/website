@@ -16,6 +16,8 @@ export default ({
 
     themeConfig: {
 
+        logo: 'images/robo-logo.svg',
+
         nav: [
             {
                 text: 'Robo Documentation',
