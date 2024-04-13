@@ -13,6 +13,10 @@ hero:
     - theme: brand
       text: Get Started
       link: /links
+      
+    - theme: alt
+      text: GitHub
+      link: https://github.com/consolidation/robo
 
 ---
 
