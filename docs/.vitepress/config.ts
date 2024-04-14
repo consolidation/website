@@ -18,6 +18,10 @@ export default ({
 
         logo: 'images/robo-logo.svg',
 
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/consolidation/robo' },
+        ],
+
         nav: [
             {
                 text: 'Robo Documentation',
