@@ -22,6 +22,10 @@ export default ({
             { icon: 'github', link: 'https://github.com/consolidation/robo' },
         ],
 
+        search: {
+            provider: 'local'
+        },
+
         nav: [
             {
                 text: 'Robo Documentation',
