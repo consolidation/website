@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.BeFoaYBY.js";const E=JSON.parse('{"title":"Vcs Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Vcs.md","filePath":"tasks/Vcs.md"}'),t={name:"tasks/Vcs.md"},e=n("",13),l=[e];function h(p,k,d,c,o,r){return a(),i("div",null,l)}const F=s(t,[["render",h]]);export{E as __pageData,F as default};

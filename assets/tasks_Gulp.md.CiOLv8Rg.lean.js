@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as i,a4 as e}from"./chunks/framework.BeFoaYBY.js";const g=JSON.parse('{"title":"Gulp Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Gulp.md","filePath":"tasks/Gulp.md"}'),t={name:"tasks/Gulp.md"},l=e("",5),n=[l];function p(o,r,h,d,c,k){return i(),a("div",null,n)}const y=s(t,[["render",p]]);export{g as __pageData,y as default};

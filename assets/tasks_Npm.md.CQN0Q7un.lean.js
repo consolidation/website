@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as i,a4 as t}from"./chunks/framework.BeFoaYBY.js";const g=JSON.parse('{"title":"Npm Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Npm.md","filePath":"tasks/Npm.md"}'),e={name:"tasks/Npm.md"},n=t("",9),l=[n];function p(o,h,r,d,k,c){return i(),a("div",null,l)}const m=s(e,[["render",p]]);export{g as __pageData,m as default};
