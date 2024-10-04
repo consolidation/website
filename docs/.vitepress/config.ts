@@ -14,6 +14,8 @@ export default ({
 
     title: 'Robo',
 
+    description: 'Modern and simple PHP task runner',
+
     themeConfig: {
 
         logo: 'images/robo-logo.svg',
