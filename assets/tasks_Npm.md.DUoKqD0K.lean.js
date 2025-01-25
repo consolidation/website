@@ -1,0 +1,1 @@
+import{_ as a,c as i,ag as t,o as e}from"./chunks/framework.DlaMfP64.js";const c=JSON.parse('{"title":"Npm Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Npm.md","filePath":"tasks/Npm.md"}'),n={name:"tasks/Npm.md"};function l(p,s,o,h,r,d){return e(),i("div",null,s[0]||(s[0]=[t("",9)]))}const u=a(n,[["render",l]]);export{c as __pageData,u as default};

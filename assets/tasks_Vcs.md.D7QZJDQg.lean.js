@@ -1,0 +1,1 @@
+import{_ as i,c as a,ag as n,o as t}from"./chunks/framework.DlaMfP64.js";const r=JSON.parse('{"title":"Vcs Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Vcs.md","filePath":"tasks/Vcs.md"}'),l={name:"tasks/Vcs.md"};function e(h,s,p,k,d,c){return t(),a("div",null,s[0]||(s[0]=[n("",13)]))}const g=i(l,[["render",e]]);export{r as __pageData,g as default};

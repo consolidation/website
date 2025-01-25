@@ -1,0 +1,1 @@
+import{_ as a,c as n,ag as i,o as e}from"./chunks/framework.DlaMfP64.js";const d=JSON.parse('{"title":"Extending","description":"","frontmatter":{},"headers":[],"relativePath":"extending.md","filePath":"extending.md"}'),t={name:"extending.md"};function p(l,s,o,h,r,c){return e(),n("div",null,s[0]||(s[0]=[i("",50)]))}const u=a(t,[["render",p]]);export{d as __pageData,u as default};
