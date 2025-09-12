@@ -4,9 +4,6 @@
     "build": "vitepress build docs"
   },
   "devDependencies": {
-    "vitepress": "^1.6.4"
-  },
-  "dependencies": {
-    "vitepress-plugin-search": "^1.0.4-alpha.22"
+    "vitepress": "^2.0.0-alpha.12"
   }
 }
