@@ -1,0 +1,1 @@
+import{_t as e,it as t,n,rt as r}from"./chunks/framework.C6TizvAB.js";var i=JSON.parse(`{"title":"File Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/File.md","filePath":"tasks/File.md"}`),a={name:`tasks/File.md`};function o(n,i,a,o,s,c){return e(),r(`div`,null,[...i[0]||=[t("",18)]])}var s=n(a,[[`render`,o]]);export{i as __pageData,s as default};

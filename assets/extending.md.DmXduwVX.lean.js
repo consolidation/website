@@ -1,0 +1,1 @@
+import{_t as e,it as t,n,rt as r}from"./chunks/framework.C6TizvAB.js";var i=JSON.parse(`{"title":"Extending","description":"","frontmatter":{},"headers":[],"relativePath":"extending.md","filePath":"extending.md"}`),a={name:`extending.md`};function o(n,i,a,o,s,c){return e(),r(`div`,null,[...i[0]||=[t("",50)]])}var s=n(a,[[`render`,o]]);export{i as __pageData,s as default};

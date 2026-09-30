@@ -1,0 +1,1 @@
+import{_t as e,it as t,n,rt as r}from"./chunks/framework.C6TizvAB.js";var i=JSON.parse(`{"title":"Vcs Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Vcs.md","filePath":"tasks/Vcs.md"}`),a={name:`tasks/Vcs.md`};function o(n,i,a,o,s,c){return e(),r(`div`,null,[...i[0]||=[t("",13)]])}var s=n(a,[[`render`,o]]);export{i as __pageData,s as default};
