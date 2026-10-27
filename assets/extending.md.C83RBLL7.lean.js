@@ -1,0 +1,1 @@
+import{at as e,it as t,n,vt as r}from"./chunks/framework.BCDp04WN.js";var i=JSON.parse(`{"title":"Extending","description":"","frontmatter":{},"headers":[],"relativePath":"extending.md","filePath":"extending.md"}`),a={name:`extending.md`};function o(n,i,a,o,s,c){return r(),t(`div`,null,[...i[0]||=[e("",50)]])}var s=n(a,[[`render`,o]]);export{i as __pageData,s as default};
