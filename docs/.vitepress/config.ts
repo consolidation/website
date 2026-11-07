@@ -18,7 +18,7 @@ export default ({
 
     themeConfig: {
 
-        logo: 'images/robo-logo.svg',
+        logo: '/images/robo-logo.svg',
 
         socialLinks: [
             { icon: 'github', link: 'https://github.com/consolidation/robo' },
