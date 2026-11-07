@@ -1,0 +1,1 @@
+import{at as e,it as t,n,vt as r}from"./chunks/framework.BCDp04WN.js";var i=JSON.parse(`{"title":"Robo Documentation","description":"","frontmatter":{},"headers":[],"relativePath":"links.md","filePath":"links.md"}`),a={name:`links.md`};function o(n,i,a,o,s,c){return r(),t(`div`,null,[...i[0]||=[e("",4)]])}var s=n(a,[[`render`,o]]);export{i as __pageData,s as default};
