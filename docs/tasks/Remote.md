@@ -10,7 +10,7 @@ $this->taskRsync()
   ->toHost('localhost')
   ->toUser('dev')
   ->toPath('/var/www/html/app/')
-  ->remoteShell('ssh -i public_key')
+  ->remoteShell('ssh -i ~/.ssh/id_ed25519')
   ->recursive()
   ->excludeVcs()
   ->checksum()
@@ -72,10 +72,10 @@ if ('y' === $this->ask('Do you want to run (y/n)')) {
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Ssh
@@ -111,7 +111,7 @@ $this->taskSshExec('remote.example.com')
 You can configure the remote directory for all future calls:
 
 ```php
-::configure('remoteDir', '/some-dir');
+\Robo\Task\Remote\Ssh::configure('remoteDir', '/some-dir');
 ```
 
 * `hostname($hostname)`   * `param string` $hostname
@@ -124,15 +124,15 @@ You can configure the remote directory for all future calls:
 * `quiet()`   * `return` $this
 * `verbose()`   * `return` $this
 * `exec($command)`   * `param string|string[]|CommandInterface` $command
-* `simulate($context)`  {@inheritdoc}
+* `simulate($context)`  Prints what the task would do without running it.
 * `setOutput($output)`  Sets the Console Output.
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 

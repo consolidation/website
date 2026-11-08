@@ -52,7 +52,7 @@ $this->taskGenDoc('models.md')
      ->filterMethods(function(\ReflectionMethod $r) {
          return $r->isPublic() or $r->isProtected(); // process public and protected methods
      })->processClass(function(\ReflectionClass $r, $text) {
-         return "Class ".$r->getName()."\n\n$text\n\n###Methods\n";
+         return "Class ".$r->getName()."\n\n$text\n\n### Methods\n";
      })->run();
 ```
 
@@ -118,7 +118,7 @@ Publishes new GitHub release.
 ``` php
 <?php
 $this->taskGitHubRelease('0.1.0')
-  ->uri('consolidation-org/Robo')
+  ->uri('consolidation/Robo')
   ->description('Add stuff people need.')
   ->change('Fix #123')
   ->change('Add frobulation method to all widgets')
@@ -146,7 +146,7 @@ $this->taskGitHubRelease('0.1.0')
 ## OpenBrowser
 
 
-Opens the default's user browser
+Opens the user's default browser
 code inspired from openBrowser() function in https://github.com/composer/composer/blob/master/src/Composer/Command/HomeCommand.php
 
 ``` php
@@ -232,14 +232,14 @@ $this->taskServer(8000)
 
 * `host($host)`   * `param string` $host
 * `dir($path)`   * `param string` $path
-* `simulate($context)`  {@inheritdoc}
+* `simulate($context)`  Prints what the task would do without running it.
 * `setOutput($output)`  Sets the Console Output.
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## SemVer

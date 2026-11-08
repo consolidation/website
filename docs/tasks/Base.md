@@ -19,15 +19,15 @@ if ($this->taskExec('phpunit .')->run()->wasSuccessful()) {
 ?>
 ```
 
-* `simulate($context)`  {@inheritdoc}
+* `simulate($context)`  Prints what the task would do without running it.
 * `setOutput($output)`  Sets the Console Output.
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## ExecStack
@@ -41,7 +41,7 @@ Stack can be stopped on first fail if you call `stopOnFail()`.
 $this->taskExecStack()
  ->stopOnFail()
  ->exec('mkdir site')
- ->exec('cd site')
+ ->exec('touch site/index.html')
  ->run();
 
 ?>
@@ -58,7 +58,7 @@ $this->taskExecStack()
 ## ParallelExec
 
 
-Class ParallelExecTask
+Runs multiple processes in parallel.
 
 ``` php
 <?php
@@ -71,7 +71,7 @@ $this->taskParallelExec()
 ```
 
 * `process($command)`   * `param string|\Robo\Contract\CommandInterface` $command
-* `waitInterval($waitInterval)`  Parallel processing will wait `$waitInterval` seconds after launching each process and before
+* `waitInterval($waitInterval)`  Parallel processing will wait `$waitInterval` seconds after launching each process and before the next one.
 * `setOutput($output)`  Sets the Console Output.
 
 
@@ -144,14 +144,14 @@ $this
      'filename',
      function ($event) {
          $resource = $event->getResource();
-         ... do something with (string)$resource ...
+         // ... do something with (string)$resource ...
      },
-     FilesystemEvent::ALL
+     \Lurker\Event\FilesystemEvent::ALL
  )
  ->run();
 ```
 
-The $event parameter is a [standard Symfony file resource object](https://api.symfony.com/3.1/Symfony/Component/Config/Resource/FileResource.html)
+The `$event` parameter is a Lurker `FilesystemEvent`; `$event->getResource()` returns the changed file or directory, which can be cast to a string to get its path.
 
 * `monitor($paths, $callable, $events = null)`   * `param string|string[]` $paths
 * `setOutput($output)`  Sets the Console Output.

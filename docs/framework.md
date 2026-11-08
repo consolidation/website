@@ -13,7 +13,7 @@ Next, add an "autoload" section to your composer.json to provide a namespace for
 {
     "name": "myorg/myproject",
     "require": {
-        "consolidation/Robo": "^2"
+        "consolidation/robo": "^4"
     },
     "autoload":{
         "psr-4":{
@@ -22,7 +22,7 @@ Next, add an "autoload" section to your composer.json to provide a namespace for
     }
 }
 ```
-Create a new file for your Robo commands, e.g. `class RoboFile` in `namespace MyProject\Commands;` in the file `src\Commands\RoboFile.php`.  Optionally, add more task libraries as described in the [extending](extending.md) document.
+Create a new file for your Robo commands, e.g. `class RoboFile` in `namespace MyProject\Commands;` in the file `src/Commands/RoboFile.php`.  Optionally, add more task libraries as described in the [extending](extending.md) document.
 
 Create a startup script similar to the one below, and add it to the root of your project, or some other location of your choosing:
 
@@ -66,7 +66,7 @@ exit($statusCode);
 ```
 When using Robo as a framework, the Robo file should be included in the autoloader, as Robo does not include a `RoboFile.php` file when used in this mode. Instead, specify the class or classes to load as a parameter to the Robo\Runner constructor.
 
-Use [box-project/box2](https://github.com/box-project/box2) or Robo's taskPackPhar to create a phar for your application. If your application's repository is hosted on GitHub, then passing the appropriate GitHub `org/project` to the `\Robo\Robo::run()` method, as shown above, will enable the `self:update` command to automatically update to the latest available version. Note that `self:update` only works with phar distributions.
+Use [box-project/box](https://github.com/box-project/box) or Robo's taskPackPhar to create a phar for your application. If your application's repository is hosted on GitHub, then passing the appropriate GitHub `org/project` to the `setSelfUpdateRepository()` method of the runner, as shown above, will enable the `self:update` command to automatically update to the latest available version. Note that `self:update` only works with phar distributions.
 
 ## Using Multiple RoboFiles in a Standalone Application
 
@@ -110,7 +110,7 @@ Then, create your own custom application:
 <?php
 
 use Robo\Common\ConfigAwareTrait;
-use Robo\Config;
+use Robo\Config\Config;
 use Robo\Robo;
 use Robo\Runner as RoboRunner;
 use Symfony\Component\Console\Application;
@@ -132,7 +132,7 @@ class MyApplication {
     OutputInterface $output = NULL
   ) {
 
-    // Create applicaton.
+    // Create application.
     $this->setConfig($config);
     $application = new Application(self::APPLICATION_NAME, $config->get('version'));
 
@@ -162,7 +162,7 @@ If you are using League\Container (recommended), then you may simply add and sha
 
 ## Using a Custom Configuration Loader
 
-Robo provides a very simple configuration loader. If you wish to use more capable loader, you may opt to do so. Replace the call to `Robo::createConfiguration()` with code similar to the following:
+Robo provides a very simple configuration loader. If you wish to use a more capable loader, you may opt to do so. Replace the call to `Robo::createConfiguration()` with code similar to the following:
 ```
 use Robo\Config\Config;
 use Consolidation\Config\Loader\YamlConfigLoader;
@@ -179,4 +179,4 @@ You may also wish to subclass the provided `Config` and `ConfigProcessor` classe
 
 The example above presumes that the configuration object starts off empty. If you need to repeat this process to extend the configuration in a later stage, you should call `$processor->add($config->export());` to ensure that the configuration processor is seeded with the previous configuration values.
 
-Any configuraiton loader that produces a nested array may be used in place of the config loaders and config processor shown in the example above. For example, if you wish to find configuration files in a certain set of directories, allow .yml or .xml configuration files, and validate the schema of your configuration files (to alert users of any syntax errors or unrecognized configuration values), you might want to consider [Symfony/Config](https://symfony.com/doc/current/components/config/definition.html). Symfony/Config produces a clean array of configuration values; the result of `$processor->processConfiguration()` may be provided directly to Robo's `$config->import()` method.
+Any configuration loader that produces a nested array may be used in place of the config loaders and config processor shown in the example above. For example, if you wish to find configuration files in a certain set of directories, allow .yml or .xml configuration files, and validate the schema of your configuration files (to alert users of any syntax errors or unrecognized configuration values), you might want to consider [Symfony/Config](https://symfony.com/doc/current/components/config/definition.html). Symfony/Config produces a clean array of configuration values; the result of `$processor->processConfiguration()` may be provided directly to Robo's `$config->import()` method.

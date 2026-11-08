@@ -36,7 +36,7 @@ class RoboFile extends \Robo\Tasks
 ?>
 ```
 
-**Note:** The class ConsoleIO *isa* SymfonyStyle, and therefore has access to all of the Symfony styling methods. It also adds a few Robo extensions such as the `say()` and `yell()` output styles. This parameter may be omitted for commands that do not perofrom any output.
+**Note:** The class ConsoleIO *isa* SymfonyStyle, and therefore has access to all of the Symfony styling methods. It also adds a few Robo extensions such as the `say()` and `yell()` output styles. This parameter may be omitted for commands that do not perform any output.
 
 When we run:
 
@@ -285,7 +285,7 @@ return Robo\Result::success($this, "Assets compiled");
 return Robo\Result::error($this, "Failed to compile assets");
 ```
 
-You can use this results to check if execution was successful, either using the `wasSuccessful()` method, or via the `invoke` shortcut. We will use the `Exec` task in next example to illustrate this:
+You can use these results to check if execution was successful, either using the `wasSuccessful()` method, or via the `invoke` shortcut. We will use the `Exec` task in next example to illustrate this:
 
 ``` php
 <?php
@@ -308,7 +308,7 @@ When making multi-step commands that call one task after another, it is best to 
 
 Some tasks may also attach data to the Result object.  If this is done, the data may be accessed as an array; for example, `$result['path'];`. This is not common.
 
-Commands should return a Result object obtained from a task; this will ensure that the command exit code is set correctly.  If a command does not have a Result object available, then it may use a ResultData object.  ResultData objects are just like Result objects, except the do not contain a reference to a task.
+Commands should return a Result object obtained from a task; this will ensure that the command exit code is set correctly.  If a command does not have a Result object available, then it may use a ResultData object.  ResultData objects are just like Result objects, except they do not contain a reference to a task.
 
 ```
 return new Robo\ResultData($exitcode, 'Error message.');
@@ -407,7 +407,7 @@ command:
       who: world
 ```
 
-If you run this command, then it will print `Hello, world`. If the `--who` option is provided on the command line, that value will take precidence over the value stored in configuration. Thus, `hello --who=everyone` will print `Hello, everyone`.
+If you run this command, then it will print `Hello, world`. If the `--who` option is provided on the command line, that value will take precedence over the value stored in configuration. Thus, `hello --who=everyone` will print `Hello, everyone`.
 
 Command groups may also share configuration options. For example, if you have commands `foo:bar`, `foo:baz` and `foo:boz`, all of which share a common option `color`, then the following configuration will provide the value `blue` to `foo:bar` and `foo:baz`, and the value `green` to `foo:boz`:
 
@@ -430,9 +430,9 @@ $this->taskMyOperation()
   ->extrapolated(false)
   ->run();
 ```
-You could instead remove the setter methods and move the parameter values to a configruation file:
+You could instead remove the setter methods and move the parameter values to a configuration file:
 ```
-$this->taskComposerInstall()
+$this->taskMyOperation()
   ->run();
 ```
 Then, presuming that `taskMyOperation` was implemented in a class `\MyOrg\Task\TaskGroup\MyOperation`, then the corresponding configuration file would appear as follows:
@@ -446,7 +446,7 @@ task:
 ```
 The key for configuration-injected settings is `task.PARTIAL_NAMESPACE.CLASSNAME.settings.key`. PARTIAL_NAMESPACE is the namespace for the class, with each `\` replaced with a `.`, and with each component of the namespace up to and including `Task` removed.
 
-Tasks in the same namespace may also share configuration-injected settings. For example, the configuration below will set the `dir` option of any task implemented by a class in the `*\TaskGroup\MyOperation` namespace, unless the task has a more specific configuration value stored with its classname:
+Tasks in the same namespace may also share configuration-injected settings. For example, the configuration below will set the `dir` option of any task implemented by a class in the `*\TaskGroup` namespace, unless the task has a more specific configuration value stored with its classname:
 ```
 task:
   TaskGroup:
@@ -463,7 +463,7 @@ In the implementation of `taskMyOperation()` itself, it is in general not necess
 
 ### Providing Default Configuration in Code
 
-RoboFiles that wish to provide default configuration values that can be overridden via robo.yml values or commandline options may do so in the class' constructor method.  The example below demonstrates how to set up a default value for the `task.Ssh.remoteDir` configuration property in code:
+RoboFiles that wish to provide default configuration values that can be overridden via robo.yml values or commandline options may do so in the class' constructor method.  The example below demonstrates how to set up a default value for the `task.Remote.Ssh.remoteDir` configuration property in code:
 ```
 class RoboFile
 {
@@ -493,7 +493,7 @@ It is possible to have even more control than this if you [create your own appli
 
 ## IO
 
-As you noticed, you can print text via the `say` method, which is taken from the `Robo\Output` trait.
+As you noticed, you can print text via the `say` method, which is provided by the `Robo\Common\IO` trait.
 
 ```
 $this->say("Hello");
@@ -516,7 +516,7 @@ This allows Robo scripts to follow the documentation on [How to Style a Console 
 
 ### Formatters
 
-It is preferable for commands that look up and display information should avoid doing IO directly, and should instead return the data they wish to display as an array. This data can then be converted into different data formats, such as "table" and "json". The user may select which formatter to use via the --format option. For details on formatters, see the [consolidation/output-formatters](https://github.com/consolidation/output-formatters) project.
+Commands that look up and display information should preferably avoid doing IO directly, and should instead return the data they wish to display as an array. This data can then be converted into different data formats, such as "table" and "json". The user may select which formatter to use via the --format option. For details on formatters, see the [consolidation/output-formatters](https://github.com/consolidation/output-formatters) project.
 
 ## Working with Composer
 
@@ -525,7 +525,7 @@ It is preferable for commands that look up and display information should avoid 
 Robo is designed to work well with Composer. To use Robo scripts in your Composer-based project, simply add `robo` to your composer.json file:
 ```
 $ cd myproject
-$ composer require consolidation/robo:^2
+$ composer require consolidation/robo:^4
 $ ./vendor/bin/robo mycommand
 ```
 If you do not want to type the whole path to Robo, you may add `./vendor/bin` to your `$PATH` (relative paths work), or use `composer exec` to find and run Robo:
@@ -540,7 +540,7 @@ When using Robo in your project, it is convenient to define Composer scripts tha
 {
     "name": "myorg/myproject",
     "require": {
-        "consolidation/robo": "^2"
+        "consolidation/robo": "^4"
     },
     "scripts": {
         "test": "composer robo test",
@@ -565,4 +565,4 @@ If you would like to simplify the output of your script (e.g. when running on a 
 
 ## Robo as a Framework
 
-For an overview on how to turn your Robo scripts into standalone tools, see the example [robo.script](https://github.com/consolidation/Robo/blob/master/examples/robo.script), and the section [Robo as a Framework](framework.md).
+For an overview on how to turn your Robo scripts into standalone tools, see the example [robo.script](https://github.com/consolidation/Robo/blob/4.x/examples/robo.script), and the section [Robo as a Framework](framework.md).

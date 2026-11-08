@@ -1,12 +1,12 @@
 # Extending
 
-Robo tasks can be added to your Robo application by using Composer to suppliment the set of built-in tasks that Robo provides by default. To find existing Robo task extensions, search in Packagist for projects of type [robo-tasks](https://packagist.org/search/?type=robo-tasks).
+Robo tasks can be added to your Robo application by using Composer to supplement the set of built-in tasks that Robo provides by default. To find existing Robo task extensions, search in Packagist for projects of type [robo-tasks](https://packagist.org/search/?type=robo-tasks).
 
 The convention used to add new tasks for use in your RoboFiles is to create a wrapper trait named `Tasks` in your namespace that instantiates the implementation class for each task. Each task method in the trait should start with the prefix `task`, and should use **chained method calls** for configuration. Task execution should be triggered by the method `run`.
 
 To include additional tasks in your RoboFile, you must `use` the appropriate `Tasks` in your RoboFile. See the section [Including Additional Tasks](#including-additional-tasks) below. To create your own Robo extension that provides tasks for use in RoboFiles, then you must write your own class that implements TaskInterface, and create a `Tasks` trait for it as described in the section [Creating a Robo Extension](#creating-a-robo-extension).
 
-Note: The `Tasks` traits are called `loadTasks` in Robo core. This is a legacy name, preserved for backwards compatibility purposes. These traits will all be renamed to `Tasks` in Robo 2.0.
+Note: The `Tasks` traits are called `loadTasks` in Robo core. This is a legacy name, preserved for backwards compatibility purposes. Both names work; new extensions should use `Tasks`.
 
 ## Including Additional Tasks
 
@@ -15,10 +15,12 @@ Additional tasks may be installed into projects that have included Robo via Comp
 $ cd myproject
 $ composer require boedah/robo-drush
 ```
-If any of the tasks you include require external Composer projects themselves, then you must `composer require` these as well.  See the `suggests` section of Robo's composer.json file for a list of some projects you might need to require.
+If any of the tasks you include require external Composer projects themselves, then you must `composer require` these as well.  See the `suggest` section of Robo's composer.json file for a list of some projects you might need to require.
 
 Once the extension you wish to use has been added to your vendor directory, you may then include it from your RoboFile:
 ``` php
+use Robo\Symfony\ConsoleIO;
+
 class RoboFile extends \Robo\Tasks
 {
   use Boedah\Robo\Task\Drush\Tasks;
@@ -80,8 +82,7 @@ You can now access your new commands via Robo:
 
 ```
 $ ./vendor/bin/robo
-$ ./robo
-Robo 1.2.2-dev
+Robo 4.0.3
 
 Usage:
   command [options] [arguments]
@@ -113,12 +114,12 @@ Your composer.json file should look something like the example below:
         }
     },
     "require": {
-        "php": ">=5.5.0",
-        "consolidation/robo": "~1"
+        "php": ">=8.0",
+        "consolidation/robo": "^4"
     }
 }
 ```
-Customize the name and autoload paths as necessary, and add any additional required projects needed by the tasks that your extensions will provide.  The type of your project should always be `robo-tasks`.  Robo only supports php >= 5.5.0; you may require a higher version of php if necessary.
+Customize the name and autoload paths as necessary, and add any additional required projects needed by the tasks that your extensions will provide.  The type of your project should always be `robo-tasks`.  Robo 4 requires PHP 8.0 or later; you may require a higher version of PHP if necessary.
 
 ### Create the Tasks.php Trait
 
@@ -134,11 +135,11 @@ trait Tasks
      */
     protected function taskDrushStack($pathToDrush = 'drush')
     {
-        return $this->task(__FUNCTION__, $pathToDrush);
+        return $this->task(DrushStack::class, $pathToDrush);
     }
 }
 ```
-Note that the name of the service for a given task must start with the word "task", and must have the same name as the function used to call the task.  `$this->task()` looks up the service by name; using the PHP built-in constant __FUNCTION__ for this parameter ensures that the names of these items remain in alignment.
+Note that the name of the method for a given task must start with the word "task". Pass the fully-qualified name of the task class to `$this->task()`, followed by any constructor arguments; the collection builder instantiates the class and configures it for you.
 
 ### Task implementation
 
@@ -155,7 +156,7 @@ trait Tasks
     /**
      * Example task to compile assets
      *
-     * @param string $pathToCompileAssets
+     * @param string $path
      * @return \MyAssetTasks\CompileAssets
      */
     protected function taskCompileAssets($path = null)
@@ -195,7 +196,7 @@ To use the tasks you define in a RoboFile, use its `Tasks` trait as explained in
 
 ### TaskIO
 
-To allow tasks access IO, use the `Robo\Common\TaskIO` trait, or inherit your task class from `Robo\Task\BaseTask` (recommended).
+To allow tasks to access IO, use the `Robo\Common\TaskIO` trait, or inherit your task class from `Robo\Task\BaseTask` (recommended).
 
 Inside tasks you should print process details with `printTaskInfo`, `printTaskSuccess`, and `printTaskError`.
 ```
@@ -222,14 +223,14 @@ use Robo\TaskAccessor;
 use Robo\Robo;
 use Robo\Collection\CollectionBuilder;
 
-class DrushStackTest extends \PHPUnit_Framework_TestCase implements ContainerAwareInterface
+class DrushStackTest extends \PHPUnit\Framework\TestCase implements ContainerAwareInterface
 {
     use \Boedah\Robo\Task\Drush\Tasks;
     use TaskAccessor;
     use ContainerAwareTrait;
 
     // Set up the Robo container so that we can create tasks in our tests.
-    function setup()
+    protected function setUp(): void
     {
         $container = Robo::createDefaultContainer(null, new NullOutput());
         $this->setContainer($container);

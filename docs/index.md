@@ -12,7 +12,7 @@ hero:
     actions:
     - theme: brand
       text: Get Started
-      link: /links
+      link: /getting-started
       
     - theme: alt
       text: GitHub
@@ -54,7 +54,7 @@ Now you can use it simply via `robo`.
 
 ### Composer
 
-* Run `composer require consolidation/robo:^3`
+* Run `composer require consolidation/robo:^4`
 * Use `vendor/bin/robo` to execute Robo tasks.
 
 ## Usage
@@ -64,7 +64,7 @@ All protected methods in traits that start with `task` prefix are tasks and can 
 
 ## Examples
 
-The best way to learn Robo by example is to take a look into [its own RoboFile](https://github.com/consolidation/Robo/blob/2.x/RoboFile.php)
+The best way to learn Robo by example is to take a look into [its own RoboFile](https://github.com/consolidation/Robo/blob/4.x/RoboFile.php)
 or [RoboFile of Codeception project](https://github.com/Codeception/Codeception/blob/2.4/RoboFile.php). There are also some basic example commands in `examples/RoboFile.php`.
 
 Here are some snippets from them:
@@ -115,12 +115,15 @@ Using `watch` task so you can use it for running tests or building assets.
 
 ``` php
 <?php
+
+use Robo\Symfony\ConsoleIO;
+
 class RoboFile extends \Robo\Tasks {
 
     function watchComposer(ConsoleIO $io)
     {
         // when composer.json changes `composer update` will be executed
-        $this->collectionBuilder($io)->taskWatch()->monitor('composer.json', function() {
+        $this->collectionBuilder($io)->taskWatch()->monitor('composer.json', function() use ($io) {
             $this->collectionBuilder($io)->taskComposerUpdate()->run();
         })->run();
     }
@@ -133,6 +136,9 @@ Cleaning logs and cache
 
 ``` php
 <?php
+
+use Robo\Symfony\ConsoleIO;
+
 class RoboFile extends \Robo\Tasks
 {
     public function clean(ConsoleIO $io)
@@ -161,7 +167,7 @@ robo clean
 Creating Phar archive
 
 ``` php
-function buildPhar(collectionBuilder $io)
+function buildPhar(ConsoleIO $io)
 {
     $files = Finder::create()->ignoreVCS(true)->files()->name('*.php')->in(__DIR__);
     $packer = $this->collectionBuilder($io)->taskPackPhar('robo.phar');

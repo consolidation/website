@@ -13,7 +13,7 @@ $this->taskGitStack()
  ->push('origin','master')
  ->tag('0.6.0')
  ->push('origin','0.6.0')
- ->run()
+ ->run();
 
 $this->taskGitStack()
  ->stopOnFail()
@@ -48,8 +48,8 @@ Runs hg commands in stack. You can use `stopOnFail()` to point that stack should
 
 ``` php
 <?php
-$this->hgStack
- ->cloneRepo('https://bitbucket.org/durin42/hgsubversion')
+$this->taskHgStack()
+ ->cloneRepo('https://hg.example.com/project')
  ->pull()
  ->add()
  ->commit('changed')
@@ -84,11 +84,11 @@ Runs Svn commands in stack. You can use `stopOnFail()` to point that stack shoul
 ``` php
 <?php
 $this->taskSvnStack()
- ->checkout('http://svn.collab.net/repos/svn/trunk')
- ->run()
+ ->checkout('https://svn.example.com/repos/project/trunk')
+ ->run();
 
 // alternatively
-$this->_svnCheckout('http://svn.collab.net/repos/svn/trunk');
+$this->_svnCheckout('https://svn.example.com/repos/project/trunk');
 
 $this->taskSvnStack('username', 'password')
  ->stopOnFail()
