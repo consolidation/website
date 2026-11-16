@@ -565,4 +565,4 @@ If you would like to simplify the output of your script (e.g. when running on a 
 
 ## Robo as a Framework
 
-For an overview on how to turn your Robo scripts into standalone tools, see the example [robo.script](https://github.com/consolidation/Robo/blob/4.x/examples/robo.script), and the section [Robo as a Framework](framework.md).
+For an overview on how to turn your Robo scripts into standalone tools, see the example [robo.script](https://github.com/consolidation/Robo/blob/5.x/examples/robo.script), and the section [Robo as a Framework](framework.md).

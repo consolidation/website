@@ -79,7 +79,7 @@ export default ({
             },
             {
                 text: 'Changelog',
-                link: 'https://github.com/consolidation/robo/blob/4.x/CHANGELOG.md',
+                link: 'https://github.com/consolidation/robo/blob/5.x/CHANGELOG.md',
             },
         ],
         sidebar: [
