@@ -52,7 +52,7 @@ $this->_deleteDir(['tmp', 'log']);
 
 
 Wrapper for [Symfony Filesystem](https://symfony.com/doc/current/components/filesystem.html) Component.
-Comands are executed in stack and can be stopped on first fail with `stopOnFail` option.
+Commands are executed in stack and can be stopped on first fail with `stopOnFail` option.
 
 ``` php
 <?php
@@ -129,7 +129,7 @@ You can also append parts of the parent directories to the target path. If you g
 the value `1` to the `includeParents()` method, then the top parent will be appended
 to the target directory resulting in a path such as `dist/assets/asset-library1.min.js`.
 
-If you give a negative number, such as `-1` (the same as specifying `array(0, 1)` then
+If you give a negative number, such as `-1` (the same as specifying `array(0, 1)`), then
 the bottom parent will be appended, resulting in a path such as
 `dist/asset-library1/asset-library1.min.js`.
 
@@ -174,7 +174,7 @@ $this->_mirrorDir('dist/config/', 'config/');
 
 
 Create a temporary directory that is automatically cleaned up
-once the task collection is is part of completes.
+once the task collection it is part of completes.
 
 Use WorkDir if you do not want the directory to be deleted.
 
@@ -184,7 +184,7 @@ Use WorkDir if you do not want the directory to be deleted.
 // Note that in this example, everything is deleted at
 // the end of $collection->run().
 $collection = $this->collectionBuilder();
-$tmpPath = $collection->tmpDir()->getPath();
+$tmpPath = $collection->tmpDir();
 $collection->taskFilesystemStack()
           ->mkdir("$tmpPath/log")
           ->touch("$tmpPath/log/error.txt");
@@ -194,9 +194,9 @@ $tmpPath = $this->_tmpDir();
 ?>
 ```
 
-* `cwd($shouldChangeWorkingDirectory = null)`  Flag that we should cwd to the temporary directory when it is
+* `cwd($shouldChangeWorkingDirectory = null)`  Flag that we should cwd to the temporary directory when it is created, and restore the old working directory when it is deleted.
 * `complete()`  Delete this directory when our collection completes.
-* `getPath()`  Get a reference to the path to the temporary directory, so that
+* `getPath()`  Get a reference to the path to the temporary directory, so that it may be used to create other tasks. The directory is not actually created until the task runs.
 * `setOutput($output)`  Sets the Console Output.
 
 ## WorkDir
@@ -209,7 +209,7 @@ there is a rollback, then the working directory is deleted.
 ``` php
 <?php
 $collection = $this->collectionBuilder();
-$workingPath = $collection->workDir("build")->getPath();
+$workingPath = $collection->workDir("build");
 $collection->taskFilesystemStack()
           ->mkdir("$workingPath/log")
           ->touch("$workingPath/log/error.txt");
@@ -217,9 +217,9 @@ $collection->run();
 ?>
 ```
 
-* `complete()`  Move our working directory into its final destination once the
+* `complete()`  Move our working directory into its final destination once the collection it belongs to completes.
 * `rollback()`  Delete our working directory
-* `getPath()`  Get a reference to the path to the temporary directory, so that
-* `cwd($shouldChangeWorkingDirectory = null)`  Flag that we should cwd to the temporary directory when it is
+* `getPath()`  Get a reference to the path to the temporary directory, so that it may be used to create other tasks. The directory is not actually created until the task runs.
+* `cwd($shouldChangeWorkingDirectory = null)`  Flag that we should cwd to the temporary directory when it is created, and restore the old working directory when it is deleted.
 * `setOutput($output)`  Sets the Console Output.
 

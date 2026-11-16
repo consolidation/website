@@ -8,7 +8,7 @@ Composer Check Platform Requirements
 ``` php
 <?php
 // simple execution
-$this->taskComposerValidate()->run();
+$this->taskComposerCheckPlatformReqs()->run();
 ?>
 ```
 
@@ -30,10 +30,10 @@ $this->taskComposerValidate()->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Config
@@ -72,10 +72,10 @@ $this->taskComposerConfig()->set('bin-dir', 'bin/')->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## CreateProject
@@ -97,7 +97,7 @@ $this->taskComposerCreateProject()->source('foo/bar')->target('myBar')->run();
 * `noInstall($noInstall = null)`   * `param bool` $noInstall
 * `repository($repository)`   * `param string` $repository
 * `stability($stability)`   * `param string` $stability
-* `buildCommand()`  {@inheritdoc}
+* `buildCommand()`  Copy class fields into command options as directed.
 * `preferDist($preferDist = null)`  adds `prefer-dist` option to composer
 * `preferSource()`  adds `prefer-source` option to composer
 * `dev($dev = null)`  adds `dev` option to composer
@@ -115,10 +115,10 @@ $this->taskComposerCreateProject()->source('foo/bar')->target('myBar')->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## DumpAutoload
@@ -168,10 +168,10 @@ $this->taskComposerDumpAutoload('path/to/my/composer.phar')
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Init
@@ -213,10 +213,10 @@ $this->taskComposerInit()->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Install
@@ -260,10 +260,10 @@ $this->taskComposerInstall('path/to/my/composer.phar')
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Remove
@@ -274,7 +274,7 @@ Composer Remove
 ``` php
 <?php
 // simple execution
-$this->taskComposerRemove()->run();
+$this->taskComposerRemove()->arg('foo/bar')->run();
 ?>
 ```
 
@@ -300,10 +300,10 @@ $this->taskComposerRemove()->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## RequireDependency
@@ -314,7 +314,7 @@ Composer Require
 ``` php
 <?php
 // simple execution
-$this->taskComposerRequire()->dependency('foo/bar', '^.2.4.8')->run();
+$this->taskComposerRequire()->dependency('foo/bar', '^2.4.8')->run();
 ?>
 ```
 
@@ -338,10 +338,10 @@ $this->taskComposerRequire()->dependency('foo/bar', '^.2.4.8')->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 
@@ -386,10 +386,10 @@ $this->taskComposerUpdate('path/to/my/composer.phar')
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Validate
@@ -427,9 +427,9 @@ $this->taskComposerValidate()->run();
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 

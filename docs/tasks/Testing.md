@@ -9,7 +9,7 @@ Runs [atoum](http://atoum.org/) tests
 $this->taskAtoum()
  ->files('path/to/test.php')
  ->configFile('config/dev.php')
- ->run()
+ ->run();
 
 ?>
 ```
@@ -26,10 +26,10 @@ $this->taskAtoum()
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Behat
@@ -59,10 +59,10 @@ $this->taskBehat()
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Codecept
@@ -93,10 +93,10 @@ $this->taskCodecept()
 * `xml($file = null)`  generate xml JUnit report
 * `html($dir = null)`  Generate html report
 * `tap($file = null)`  generate tap report
-* `configFile($file)`  provides config file other then default `codeception.yml` with `-c` option
+* `configFile($file)`  provides config file other than default `codeception.yml` with `-c` option
 * `coverage($cov = null)`  collect codecoverage in raw format. You may pass name of cov file to save results
 * `coverageXml($xml = null)`  collect code coverage in xml format. You may pass name of xml file to save results
-* `coverageHtml($html = null)`  collect code coverage and generate html report. You may pass
+* `coverageHtml($html = null)`  collect code coverage and generate html report. You may pass the name of the directory to save the report to.
 * `debug()`   * `return` $this
 * `noRebuild()`   * `return` $this
 * `noExit()`   * `return` $this
@@ -105,10 +105,10 @@ $this->taskCodecept()
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## PHPUnit
@@ -121,7 +121,7 @@ Runs PHPUnit tests
 $this->taskPHPUnit()
  ->group('core')
  ->bootstrap('test/bootstrap.php')
- ->run()
+ ->run();
 
 ?>
 ```
@@ -141,10 +141,10 @@ $this->taskPHPUnit()
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 ## Phpspec
@@ -174,10 +174,10 @@ $this->taskPhpspec()
 * `setProcessInput($input)`  Pass an input to the process. Can be resource created with fopen() or string
 * `dir($dir)`  Changes working directory of command
 * `arg($arg)`  Pass argument to executable. Its value will be automatically escaped.
-* `args($args)`  Pass methods parameters as arguments to executable. Argument values
+* `args($args)`  Pass methods parameters as arguments to executable. Argument values are automatically escaped.
 * `rawArg($arg)`  Pass the provided string in its raw (as provided) form as an argument to executable.
 * `option($option, $value = null, $separator = null)`  Pass option to executable. Options are prefixed with `--` , value can be provided in second parameter.
-* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains
+* `options(array $options, $separator = null)`  Pass multiple options to executable. The associative array contains the key:value pairs that become `--key value`, for each item in the array. Values are automatically escaped.
 * `optionList($option, $value = null, $separator = null)`  Pass an option with multiple values to executable. Value can be a string or array.
 
 

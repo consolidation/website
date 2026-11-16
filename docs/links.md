@@ -18,6 +18,7 @@
 * [File](tasks/File.md)
 * [Filesystem](tasks/Filesystem.md)
 * [Gulp](tasks/Gulp.md)
+* [Logfile](tasks/Logfile.md)
 * [Npm](tasks/Npm.md)
 * [Remote](tasks/Remote.md)
 * [Testing](tasks/Testing.md)

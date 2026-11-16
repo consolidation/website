@@ -71,6 +71,9 @@ The 'publish' command from Robo's own RoboFile is shown below.  It uses a collec
 
 ``` php
 <?php
+
+use Robo\Symfony\ConsoleIO;
+
 class RoboFile extends \Robo\Tasks
 {
     public function publish(ConsoleIO $io)
@@ -101,7 +104,7 @@ Robo also provides rollbacks and completions, special tasks that are eligible to
 
 ### Completion Tasks
 
-Completions run whenever their collection completes or fails, but only if all of the tasks that come before it succeed. An example of this is shown in the first example above. A filesystem stack task copies CHANDELOG.md to docs/changelog.md; after this task is added to the collection, another filesystem stack task is added as a completion to delete docs/changelog.md. This is done because docs/changelog.md is only intended to exist long enough to be used by the `mkdocs` task, which is added later. 
+Completions run whenever their collection completes or fails, but only if all of the tasks that come before it succeed. An example of this is shown in the first example above. A filesystem stack task copies CHANGELOG.md to docs/changelog.md; after this task is added to the collection, another filesystem stack task is added as a completion to delete docs/changelog.md. This is done because docs/changelog.md is only intended to exist long enough to be used by the `mkdocs` task, which is added later. 
 
 ### Rollback Tasks
 
@@ -162,7 +165,7 @@ class RoboFile extends \Robo\Tasks
 ?>
 ```
 
-In the previous example, the path to the temporary directory is stored in the variable `$work`, and is passed as needed to the parameters of the other tasks as they are added to the collection. After the task collection is run, the temporary directory will be automatically deleted. In the example above, the temporary directory is renamed by the last task in the collection. This allows the working directory to persist; the collection will still attempt to remove the working directory, but no errors will be thrown if it no longer exists in its original location. Following this pattern allows Robo scripts to easily and safely do work that cleans up after itself on failure, without introducing a lot of branching or additional error recovery code.  This paradigm is common enough to warrant a shortcut method of accomplishing the same thing.  The example below is identical to the one above, save for the fact that it uses the `workDir()` method instead of `tmpDir()`.  `workDir()` renames the temporary directory to its final name if the collection completes; any directory that exists in the same location will be overwritten at that time, but will persist if the collection roles back.
+In the previous example, the path to the temporary directory is stored in the variable `$work`, and is passed as needed to the parameters of the other tasks as they are added to the collection. After the task collection is run, the temporary directory will be automatically deleted. In the example above, the temporary directory is renamed by the last task in the collection. This allows the working directory to persist; the collection will still attempt to remove the working directory, but no errors will be thrown if it no longer exists in its original location. Following this pattern allows Robo scripts to easily and safely do work that cleans up after itself on failure, without introducing a lot of branching or additional error recovery code.  This paradigm is common enough to warrant a shortcut method of accomplishing the same thing.  The example below is identical to the one above, save for the fact that it uses the `workDir()` method instead of `tmpDir()`.  `workDir()` renames the temporary directory to its final name if the collection completes; any directory that exists in the same location will be overwritten at that time, but will persist if the collection rolls back.
 
 ``` php
 <?php
@@ -193,7 +196,7 @@ Temporary directories may also be created via the shortcut `$this->_tmpDir();`. 
 
 ### Temporary Files
 
-Robo also provides an API for creating temporary files. They may be created via `$this->taskTmpFile()`; they are used exactly like `$this->taskWrite()`, except they are given a random name on creation, and are deleted when their collection completes.  If they are not added to a collection, then they are deleted when the script terminates.
+Robo also provides an API for creating temporary files. They may be created via `$this->taskTmpFile()`; they are used exactly like `$this->taskWriteToFile()`, except they are given a random name on creation, and are deleted when their collection completes.  If they are not added to a collection, then they are deleted when the script terminates.
 
 ### The Temporary Global Collection
 
@@ -284,7 +287,7 @@ More complex task configuration may be done via the `defer()` method. `defer()` 
         ->run();
 ?>
 ```
-In general, it is preferable to collect all of the information needed first, and then use that data to configure the necessary tasks. For example, the previous example could be implemented more simply by calling `$system_name = exec('uname -n');` and `taskFilesystemStack->mkdir($system_name);`. Chained state can be helpful in instances where there is a more complex relationship between the tasks.
+In general, it is preferable to collect all of the information needed first, and then use that data to configure the necessary tasks. For example, the previous example could be implemented more simply by calling `$system_name = exec('uname -n');` and `taskFilesystemStack()->mkdir($system_name);`. Chained state can be helpful in instances where there is a more complex relationship between the tasks.
 
 ## Named Tasks
 

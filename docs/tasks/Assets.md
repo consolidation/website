@@ -28,7 +28,7 @@ This directory is `vendor/bin/` by default and may be changed:
 
 ```php
 $this->taskImageMinify('assets/images/*')
-    ->setExecutableDir('/tmp/imagemin/bin/)
+    ->setExecutableDir('/tmp/imagemin/bin/')
     ->to('dist/images/')
     ->run();
 ```
@@ -39,7 +39,7 @@ files. In that case it is useful to filter the files with the extension:
 ```php
 $this->taskImageMinify('assets/images/*.png')
     ->to('dist/images/')
-    ->minifier('pngcrush');
+    ->minifier('pngcrush')
     ->run();
 ```
 
@@ -57,7 +57,7 @@ The task supports the following minifiers:
 - jpegtran
 - svgo (only minification, no downloading)
 
-You can also specifiy extra options for the minifiers:
+You can also specify extra options for the minifiers:
 
 ```php
 $this->taskImageMinify('assets/images/*.jpg')
@@ -88,7 +88,7 @@ $this->taskLess([
 ?>
 ```
 
-Use one of both less compilers in your project:
+Use one of these two less compilers in your project:
 
 ```
 "leafo/lessphp": "~0.5",
@@ -127,7 +127,7 @@ Minifies an asset file (CSS or JS).
 ``` php
 <?php
 $this->taskMinify('web/assets/theme.css')
-     ->run()
+     ->run();
 ?>
 ```
 Please install additional packages to use this task:
@@ -163,7 +163,7 @@ $this->taskScss([
 Use the following scss compiler in your project:
 
 ```
-"scssphp/scssphp ": "~1.0.0",
+"scssphp/scssphp": "~1.0.0",
 ```
 
 You can implement additional compilers by extending this task and adding a

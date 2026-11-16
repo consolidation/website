@@ -12,7 +12,7 @@ $this->taskConcat([
      'web/assets/theme.css'
  ])
  ->to('web/assets/style.css')
- ->run()
+ ->run();
 ?>
 ```
 
@@ -22,7 +22,7 @@ $this->taskConcat([
 ## Replace
 
 
-Performs search and replace inside a files.
+Performs search and replace inside a file.
 
 ``` php
 <?php
@@ -52,7 +52,7 @@ $this->taskReplaceInFile('box/robo.txt')
 * `from($from)`  String(s) to be replaced.
 * `to($to)`  Value(s) to be set as a replacement.
 * `regex($regex)`  Regex to match string to be replaced.
-* `limit($limit)`  If used with $this->regexp() how many counts will be replaced
+* `limit($limit)`  If used with $this->regex() how many counts will be replaced
 * `setOutput($output)`  Sets the Console Output.
 
 
@@ -60,10 +60,10 @@ $this->taskReplaceInFile('box/robo.txt')
 
 
 Create a temporary file that is automatically cleaned up
-once the task collection is is part of completes. When created,
+once the task collection it is part of completes. When created,
 it is given a random filename.
 
-This temporary file may be manipulated exacatly like taskWrite().
+This temporary file may be manipulated exactly like taskWriteToFile().
 It is deleted as soon as the collection it is a part of completes
 or rolls back.
 
@@ -89,8 +89,8 @@ $collection->run();
 * `place($name, $val)`  substitute a placeholder with value, placeholder must be enclosed by `{}`.
 * `replace($string, $replacement)`  replace any string with value.
 * `regexReplace($pattern, $replacement)`  replace any string with value using regular expression.
-* `appendIfMatches($pattern, $text)`  Append the provided text to the end of the buffer if the provided
-* `appendUnlessMatches($pattern, $text)`  Append the provided text to the end of the buffer unless the provided
+* `appendIfMatches($pattern, $text)`  Append the provided text to the end of the buffer if the provided regex pattern matches any text already in the buffer.
+* `appendUnlessMatches($pattern, $text)`  Append the provided text to the end of the buffer unless the provided regex pattern matches any text already in the buffer.
 * `originalContents()`  @return string
 * `wouldChange()`  @return bool
 * `getPath()`  @return string
@@ -120,8 +120,8 @@ $this->taskWriteToFile('blogpost.md')
 * `place($name, $val)`  substitute a placeholder with value, placeholder must be enclosed by `{}`.
 * `replace($string, $replacement)`  replace any string with value.
 * `regexReplace($pattern, $replacement)`  replace any string with value using regular expression.
-* `appendIfMatches($pattern, $text)`  Append the provided text to the end of the buffer if the provided
-* `appendUnlessMatches($pattern, $text)`  Append the provided text to the end of the buffer unless the provided
+* `appendIfMatches($pattern, $text)`  Append the provided text to the end of the buffer if the provided regex pattern matches any text already in the buffer.
+* `appendUnlessMatches($pattern, $text)`  Append the provided text to the end of the buffer unless the provided regex pattern matches any text already in the buffer.
 * `originalContents()`  @return string
 * `wouldChange()`  @return bool
 * `getPath()`  @return string
