@@ -1,0 +1,1 @@
+import{at as e,it as t,n,vt as r}from"./chunks/framework.BCDp04WN.js";var i=JSON.parse(`{"title":"Base Tasks","description":"","frontmatter":{},"headers":[],"relativePath":"tasks/Base.md","filePath":"tasks/Base.md"}`),a={name:`tasks/Base.md`};function o(n,i,a,o,s,c){return r(),t(`div`,null,[...i[0]||=[e("",24)]])}var s=n(a,[[`render`,o]]);export{i as __pageData,s as default};
